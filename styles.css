@@ -34,14 +34,14 @@
     padding: 11px; /*Set this to 10px if you want to see the border outline without things moving from position */
 }
 
-.box-1 /*session box */
+.session
 {
     flex: 2;
     order: 2; /*Remember when using order, all elements START at order: 0; */
     font: 400 15px 'Oleo Script', Helvetica, sans-serif;
 }
 
-.minusBox-1
+.minusSession
 {
     flex: 1;
     order: 1;
@@ -56,7 +56,7 @@
     background-color: rgb(216, 211, 211);
 }
 
-.plusBox-1
+.plusSession
 {
     flex: 1; 
     order: 3;
