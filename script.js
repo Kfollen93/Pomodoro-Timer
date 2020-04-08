@@ -13,6 +13,10 @@ minusSessionButton.addEventListener('click', () =>
   {
     document.getElementById('minusSessionButton').disabled = true;
   }
+  else if (sessionTimer.textContent <= 59 + ' mins')
+  {
+    document.getElementById('plusSessionButton').disabled = false;
+  }
 });
 
 //session plus button
@@ -24,6 +28,10 @@ plusSessionButton.addEventListener('click', () =>
     if (sessionTimer.textContent <= 2 + ' mins')
     {
       document.getElementById('minusSessionButton').disabled = false;
+    }
+    else if (sessionTimer.textContent >= 60 + ' mins')
+    {
+      document.getElementById('plusSessionButton').disabled = true;
     }
 });
 
