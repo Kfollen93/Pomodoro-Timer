@@ -2,6 +2,8 @@
 let minusSessionButton = document.getElementById('minusSessionButton');
 let plusSessionButton = document.getElementById('plusSessionButton');
 let startButton = document.getElementById('startButton');
+let sessionTitle = document.querySelector('.sessionTitle');
+let breakTitle = document.querySelector('.breakTitle');
 
 
 // session minus button
@@ -59,3 +61,7 @@ startButton.addEventListener('click', () =>
     document.getElementById('startButton').disabled = true; //set false on stop button
 });
 
+
+/* eventually i'll put these in to switch between session and break */
+//sessionTitle.textContent = '';
+breakTitle.textContent = '';
