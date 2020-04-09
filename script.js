@@ -5,8 +5,10 @@ let minusBreakButton = document.getElementById('minusBreakButton');
 let plusBreakButton = document.getElementById('plusBreakButton');
 let startButton = document.getElementById('startButton');
 let resetButton = document.getElementById('stopButton');
+let pauseButton = document.getElementById('pauseButton');
 let sessionTitle = document.querySelector('.sessionTitle');
 let breakTitle = document.querySelector('.breakTitle');
+bigTimer = document.querySelector('#bigTimer');
 
 
 // session minus button
@@ -106,6 +108,25 @@ resetButton.addEventListener('click', () =>
   startButton.disabled = false;
   minusSessionButton.disabled = false;
   plusSessionButton.disabled = false;
+});
+
+//pause button
+let resumeTime = parseInt(bigTimer.textContent);
+pauseButton.addEventListener('click', () =>
+{
+  if (myTimer == -1)
+  {
+    myTimer = setInterval(function()
+    {
+      --resumeTime;
+      bigTimer.textContent = resumeTime;
+    }, 1000);
+  }
+  else
+  {
+    clearInterval(myTimer);
+    myTimer = -1;
+  }
 });
 
 
