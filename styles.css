@@ -40,8 +40,6 @@
     flex: 2;
     order: 2; /*Remember when using order, all elements START at order: 0; */
     font: 400 15px 'Oleo Script', Helvetica, sans-serif;
-    margin-right: -20px;
-    margin-left: -10px;
 }
 #sessionTimer
 {
@@ -87,8 +85,11 @@
     flex: 2;
     order: 5;
     font: 400 15px 'Oleo Script', Helvetica, sans-serif;
-    margin-right: -40px;
-    margin-left: -10px;
+}
+#breakTimer
+{
+    font-size: 1.17em;
+    font-weight: bolder;
 }
 
 .minusBreak
