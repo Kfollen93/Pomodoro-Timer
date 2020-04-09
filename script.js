@@ -9,13 +9,13 @@ let breakTitle = document.querySelector('.breakTitle');
 // session minus button
 minusSessionButton.addEventListener('click', () =>
 {
-  sessionTimer.textContent = parseInt(sessionTimer.textContent) - 1 + ' mins';
+  sessionTimer.textContent = parseInt(sessionTimer.textContent) - 1;
   bigTimer.textContent = parseInt(bigTimer.textContent) - 1 + ':00';
-  if (sessionTimer.textContent <= "1 mins")
+  if (sessionTimer.textContent <= 1)
   {
     document.getElementById('minusSessionButton').disabled = true;
   }
-  else if (sessionTimer.textContent <= "59 mins")
+  else if (sessionTimer.textContent <= 59)
   {
     document.getElementById('plusSessionButton').disabled = false;
   }
@@ -24,17 +24,18 @@ minusSessionButton.addEventListener('click', () =>
 //session plus button
 plusSessionButton.addEventListener('click', () =>
 {
-    sessionTimer.textContent = parseInt(sessionTimer.textContent) + 1 + ' mins';
+    sessionTimer.textContent = parseInt(sessionTimer.textContent) + 1;
     bigTimer.textContent = parseInt(bigTimer.textContent) + 1 + ':00';
-    if (sessionTimer.textContent <= "2 mins")
+    if (sessionTimer.textContent >= 2)
     {
       document.getElementById('minusSessionButton').disabled = false;
     }
-    else if (sessionTimer.textContent >= "60 mins")
+    if (sessionTimer.textContent >= 60)
     {
       document.getElementById('plusSessionButton').disabled = true;
     }
-});
+}); 
+
 
 //start button defaults 25mins
 startButton.addEventListener('click', () =>
@@ -51,7 +52,7 @@ startButton.addEventListener('click', () =>
         bigTimer.textContent = minutes + ":" + seconds;
   
         if (--timer < 0) {
-            bigTimer.textContent = "Break Time!";
+            //bigTimer.textContent = "Break Time!"; 
         }
     }, 1000);
   }
