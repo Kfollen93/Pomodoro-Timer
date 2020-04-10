@@ -75,8 +75,8 @@ plusBreakButton.addEventListener('click', () =>
 //start button defaults 25mins
 startButton.addEventListener('click', () =>
 {
-  function startTimer(duration, bigTimer) {
-        let timer = duration, minutes, seconds;
+  function startTimer(startTime, bigTimer) {
+        let timer = startTime, minutes, seconds;
         myTimer = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
@@ -111,40 +111,105 @@ resetButton.addEventListener('click', () =>
 });
 
 //pause button
-pauseButton.addEventListener('click', () =>
+/*pauseButton.addEventListener('click', () =>
 {
   let bigT = document.getElementById('bigTimer').textContent;
- //let resumeTime = 60 * parseInt(bigTimer.textContent);
-  //console.log(resumeTime + ' =Resume time');
-  //let minutes = parseInt(resumeTime / 60, 10);
-  let minutes = bigT.split(':', 1);
-  console.log(minutes + ' =Minutes')
-  //let seconds = parseInt(resumeTime % 60, 10);
+  
+  let minutesSelf = parseInt(bigT.split(':', 1));
+  console.log(minutesSelf + ' = Minutes')
   let secondsStr = bigT.split(':');
-  let seconds = secondsStr[1];
-  console.log(seconds + ' =Seconds')
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  seconds = seconds < 10 ? "0" + seconds : seconds;
+  let secondsSelf = parseInt(secondsStr[1]);
+  console.log(secondsSelf + ' = Seconds')
+  bigTparsed = parseInt(minutesSelf + ":" + secondsSelf);
+  
 
-  if (myTimer == -1)
+
+  if (!myTimer)
   {
-    myTimer = setInterval(function()
-    {
-      --seconds;
-      //--resumeTime;
-      bigTimer.textContent = minutes + ":" + seconds;
-    }, 1000);
+    myTimer = setInterval(bigTparsed, 100);
+    --myTimer;
+  }
+  else if (myTimer)
+  {
+    clearInterval(myTimer);
+  }
+
+  /*if (myTimer == -1) //not paused
+  {
+    //myTimer = setInterval(function()
+    myTimer = setInterval(bigTparsed, 100);
+    /*{
+      --secondsSelf;
+      bigTimer.textContent = minutesSelf + ":" + secondsSelf;
+    }, 1000); 
     pauseButton.innerHTML = 'Pause';
   }
-  else
+  else //paused
   {
     clearInterval(myTimer);
     myTimer = -1;
     pauseButton.innerHTML = 'Resume';
-  }
-});
-
+  }  
+}); 
 
 /* eventually i'll put these in to switch between session and break */
 //sessionTitle.textContent = '';
 breakTitle.textContent = '';
+
+
+//-------------
+
+
+//-- Pause BUTTON TEST
+
+pauseButton.addEventListener('click', () =>
+{
+
+  //clearInterval(myTimer);
+  function startTimer(startTime, bigTimer) {
+        let timer = startTime, minutes, seconds;
+        myTimer = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+  
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+  
+        bigTimer.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            //bigTimer.textContent = "Break Time!"; 
+        }
+    }, 1000);
+  }
+    let bigT = document.getElementById('bigTimer').textContent;
+    let minutesStr = bigT.split(':');
+    let minutesSelf = parseInt(minutesStr[0]);
+    let secondsStr = bigT.split(':');
+    let resumeSecs = parseInt(secondsStr[1]);
+    let resumeMins = 60 * parseInt(minutesSelf);
+    let startTime = resumeMins + resumeSecs;
+    bigTimer = document.querySelector('#bigTimer');
+    
+    if (myTimer == -1)
+    {
+      startTimer(startTime, bigTimer);
+      pauseButton.innerHTML = 'Pause';
+    }
+    else{
+      clearInterval(myTimer);
+      myTimer = -1;
+      pauseButton.innerHTML = 'Resume';
+    }
+}); 
+
+//pauseButton.addEventListener("click", function(){clearInterval(myTimer)}, false);
+
+/*let bigT = document.getElementById('bigTimer').textContent;
+  
+let minutesSelf = parseInt(bigT.split(':', 1));
+console.log(minutesSelf + ' = Minutes')
+let secondsStr = bigT.split(':');
+let secondsSelf = parseInt(secondsStr[1]);
+console.log(secondsSelf + ' = Seconds')
+bigTparsed = parseInt(minutesSelf + ":" + secondsSelf); */
