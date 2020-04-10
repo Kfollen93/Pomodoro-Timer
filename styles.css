@@ -118,7 +118,7 @@
 
 .pause {
   flex: 1;
-  order: 8; /* 7 */
+  order: 8;
 }
 
 #pauseButton {
