@@ -8,7 +8,7 @@ let resetButton = document.getElementById('stopButton');
 let pauseButton = document.getElementById('pauseButton');
 let sessionTitle = document.querySelector('.sessionTitle');
 let breakTitle = document.querySelector('.breakTitle');
-bigTimer = document.querySelector('#bigTimer');
+let bigTimer = document.querySelector('#bigTimer');
 
 
 // session minus button
@@ -111,21 +111,36 @@ resetButton.addEventListener('click', () =>
 });
 
 //pause button
-let resumeTime = parseInt(bigTimer.textContent);
 pauseButton.addEventListener('click', () =>
 {
+  let bigT = document.getElementById('bigTimer').textContent;
+ //let resumeTime = 60 * parseInt(bigTimer.textContent);
+  //console.log(resumeTime + ' =Resume time');
+  //let minutes = parseInt(resumeTime / 60, 10);
+  let minutes = bigT.split(':', 1);
+  console.log(minutes + ' =Minutes')
+  //let seconds = parseInt(resumeTime % 60, 10);
+  let secondsStr = bigT.split(':');
+  let seconds = secondsStr[1];
+  console.log(seconds + ' =Seconds')
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
   if (myTimer == -1)
   {
     myTimer = setInterval(function()
     {
-      --resumeTime;
-      bigTimer.textContent = resumeTime;
+      --seconds;
+      //--resumeTime;
+      bigTimer.textContent = minutes + ":" + seconds;
     }, 1000);
+    pauseButton.innerHTML = 'Pause';
   }
   else
   {
     clearInterval(myTimer);
     myTimer = -1;
+    pauseButton.innerHTML = 'Resume';
   }
 });
 
