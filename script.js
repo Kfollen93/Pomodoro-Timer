@@ -6,7 +6,7 @@ let plusBreakButton = document.getElementById('plusBreakButton');
 let startButton = document.getElementById('startButton');
 let resetButton = document.getElementById('stopButton');
 let pauseButton = document.getElementById('pauseButton');
-let sessionTitle = document.querySelector('.sessionTitle');
+let sessionTitle = document.querySelector('#sessionTitle');
 let breakTitle = document.querySelector('.breakTitle');
 let bigTimer = document.querySelector('#bigTimer');
 
@@ -45,7 +45,6 @@ plusSessionButton.addEventListener('click', () =>
 minusBreakButton.addEventListener('click', () =>
 {
   breakTimer.textContent = parseInt(breakTimer.textContent) - 1;
-  //bigTimer.textContent = parseInt(bigTimer.textContent) - 1 + ':00';
   if (breakTimer.textContent <= 1)
   {
     minusBreakButton.disabled = true;
@@ -60,7 +59,6 @@ minusBreakButton.addEventListener('click', () =>
 plusBreakButton.addEventListener('click', () =>
 {
     breakTimer.textContent = parseInt(breakTimer.textContent) + 1;
-    //bigTimer.textContent = parseInt(bigTimer.textContent) + 1 + ':00';
     if (breakTimer.textContent >= 2)
     {
       minusBreakButton.disabled = false;
@@ -86,9 +84,11 @@ startButton.addEventListener('click', () =>
   
         bigTimer.textContent = minutes + ":" + seconds;
   
-        if (--timer < 0) {
-            //bigTimer.textContent = "Break Time!"; 
+        if (--timer < 0 && sessionTitle.textContent == "Session") {
+          sessionTitle.textContent = "Break";
+          
         }
+  
     }, 1000);
   }
     let startTime = 60 * parseInt(sessionTimer.textContent);
@@ -97,6 +97,7 @@ startButton.addEventListener('click', () =>
     startButton.disabled = true;
     minusSessionButton.disabled = true;
     plusSessionButton.disabled = true;
+    pauseButton.disabled = false;
 });
 
 //stop Button
@@ -108,60 +109,11 @@ resetButton.addEventListener('click', () =>
   startButton.disabled = false;
   minusSessionButton.disabled = false;
   plusSessionButton.disabled = false;
+  pauseButton.disabled = true;
+  pauseButton.textContent = "Pause";
 });
 
-//pause button
-/*pauseButton.addEventListener('click', () =>
-{
-  let bigT = document.getElementById('bigTimer').textContent;
-  
-  let minutesSelf = parseInt(bigT.split(':', 1));
-  console.log(minutesSelf + ' = Minutes')
-  let secondsStr = bigT.split(':');
-  let secondsSelf = parseInt(secondsStr[1]);
-  console.log(secondsSelf + ' = Seconds')
-  bigTparsed = parseInt(minutesSelf + ":" + secondsSelf);
-  
-
-
-  if (!myTimer)
-  {
-    myTimer = setInterval(bigTparsed, 100);
-    --myTimer;
-  }
-  else if (myTimer)
-  {
-    clearInterval(myTimer);
-  }
-
-  /*if (myTimer == -1) //not paused
-  {
-    //myTimer = setInterval(function()
-    myTimer = setInterval(bigTparsed, 100);
-    /*{
-      --secondsSelf;
-      bigTimer.textContent = minutesSelf + ":" + secondsSelf;
-    }, 1000); 
-    pauseButton.innerHTML = 'Pause';
-  }
-  else //paused
-  {
-    clearInterval(myTimer);
-    myTimer = -1;
-    pauseButton.innerHTML = 'Resume';
-  }  
-}); 
-
-/* eventually i'll put these in to switch between session and break */
-//sessionTitle.textContent = '';
-breakTitle.textContent = '';
-
-
-//-------------
-
-
-//-- Pause BUTTON TEST
-
+//pause
 pauseButton.addEventListener('click', () =>
 {
 
@@ -177,8 +129,8 @@ pauseButton.addEventListener('click', () =>
   
         bigTimer.textContent = minutes + ":" + seconds;
 
-        if (--timer < 0) {
-            //bigTimer.textContent = "Break Time!"; 
+        if (--timer < 0 && sessionTitle.textContent == "Session") {
+          sessionTitle.textContent = "Break";
         }
     }, 1000);
   }
@@ -190,7 +142,7 @@ pauseButton.addEventListener('click', () =>
     let resumeMins = 60 * parseInt(minutesSelf);
     let startTime = resumeMins + resumeSecs;
     bigTimer = document.querySelector('#bigTimer');
-    
+
     if (myTimer == -1)
     {
       startTimer(startTime, bigTimer);
@@ -202,14 +154,3 @@ pauseButton.addEventListener('click', () =>
       pauseButton.innerHTML = 'Resume';
     }
 }); 
-
-//pauseButton.addEventListener("click", function(){clearInterval(myTimer)}, false);
-
-/*let bigT = document.getElementById('bigTimer').textContent;
-  
-let minutesSelf = parseInt(bigT.split(':', 1));
-console.log(minutesSelf + ' = Minutes')
-let secondsStr = bigT.split(':');
-let secondsSelf = parseInt(secondsStr[1]);
-console.log(secondsSelf + ' = Seconds')
-bigTparsed = parseInt(minutesSelf + ":" + secondsSelf); */
