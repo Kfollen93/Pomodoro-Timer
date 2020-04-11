@@ -10,7 +10,6 @@ let sessionTitle = document.querySelector('#sessionTitle');
 let breakTitle = document.querySelector('.breakTitle');
 let bigTimer = document.querySelector('#bigTimer');
 
-
 // session minus button
 minusSessionButton.addEventListener('click', () =>
 {
@@ -69,7 +68,6 @@ plusBreakButton.addEventListener('click', () =>
     }
 }); 
 
-
 //start button defaults 25mins
 startButton.addEventListener('click', () =>
 {
@@ -85,8 +83,10 @@ startButton.addEventListener('click', () =>
         bigTimer.textContent = minutes + ":" + seconds;
   
         if (--timer < 0 && sessionTitle.textContent == "Session") {
+          clearInterval(myTimer);
           sessionTitle.textContent = "Break";
-          
+          startTimeBreak = 60 * parseInt(breakTimer.textContent);
+          startBreak(startTimeBreak, bigTimer);
         }
   
     }, 1000);
@@ -99,6 +99,27 @@ startButton.addEventListener('click', () =>
     plusSessionButton.disabled = true;
     pauseButton.disabled = false;
 });
+
+function startTimer(startTime, bigTimer) {
+  let timer = startTime, minutes, seconds;
+  myTimer = setInterval(function () {
+  minutes = parseInt(timer / 60, 10);
+  seconds = parseInt(timer % 60, 10);
+
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  bigTimer.textContent = minutes + ":" + seconds;
+
+  if (--timer < 0 && sessionTitle.textContent == "Session") {
+    clearInterval(myTimer);
+    sessionTitle.textContent = "Break";
+    startTimeBreak = 60 * parseInt(breakTimer.textContent);
+    startBreak(startTimeBreak, bigTimer);
+  }
+
+}, 1000);
+}
 
 //stop Button
 resetButton.addEventListener('click', () =>
@@ -116,22 +137,23 @@ resetButton.addEventListener('click', () =>
 //pause
 pauseButton.addEventListener('click', () =>
 {
-
-  //clearInterval(myTimer);
   function startTimer(startTime, bigTimer) {
-        let timer = startTime, minutes, seconds;
-        myTimer = setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-  
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-  
-        bigTimer.textContent = minutes + ":" + seconds;
+  let timer = startTime, minutes, seconds;
+  myTimer = setInterval(function () {
+  minutes = parseInt(timer / 60, 10);
+  seconds = parseInt(timer % 60, 10);
 
-        if (--timer < 0 && sessionTitle.textContent == "Session") {
-          sessionTitle.textContent = "Break";
-        }
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  bigTimer.textContent = minutes + ":" + seconds;
+
+  if (--timer < 0 && sessionTitle.textContent == "Session") {
+    
+    sessionTitle.textContent = "Break";
+    startTimeBreak = 60 * parseInt(breakTimer.textContent);
+    startBreak(startTimeBreak, bigTimer);
+  }
     }, 1000);
   }
     let bigT = document.getElementById('bigTimer').textContent;
@@ -154,3 +176,28 @@ pauseButton.addEventListener('click', () =>
       pauseButton.innerHTML = 'Resume';
     }
 }); 
+
+// break Timer func
+function startBreak(startTimeBreak, bigTimer) {
+  startTimeBreak = 60 * parseInt(breakTimer.textContent);
+  let timer = startTimeBreak, minutes, seconds;
+  myTimer = setInterval(function () {
+  minutes = parseInt(timer / 60, 10);
+  seconds = parseInt(timer % 60, 10);
+
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  bigTimer.textContent = minutes + ":" + seconds;
+
+
+if (--timer < 0 && sessionTitle.textContent == "Break") {
+  clearInterval(myTimer);
+  sessionTitle.textContent = "Session";
+  startTime = 60 * parseInt(sessionTimer.textContent);
+  startTimer(startTime, bigTimer);
+} 
+
+}, 1000);
+
+}
