@@ -149,11 +149,17 @@ pauseButton.addEventListener('click', () =>
   bigTimer.textContent = minutes + ":" + seconds;
 
   if (--timer < 0 && sessionTitle.textContent == "Session") {
-    
+    clearInterval(myTimer);
     sessionTitle.textContent = "Break";
     startTimeBreak = 60 * parseInt(breakTimer.textContent);
     startBreak(startTimeBreak, bigTimer);
   }
+  else if (--timer < 0 && sessionTitle.textContent == "Break") { //2 seconds culprit
+    clearInterval(myTimer);
+    sessionTitle.textContent = "Session";
+    startTime = 60 * parseInt(sessionTimer.textContent);
+    startTimer(startTime, bigTimer);
+  } 
     }, 1000);
   }
     let bigT = document.getElementById('bigTimer').textContent;
@@ -167,6 +173,7 @@ pauseButton.addEventListener('click', () =>
 
     if (myTimer == -1)
     {
+      clearInterval(myTimer);
       startTimer(startTime, bigTimer);
       pauseButton.innerHTML = 'Pause';
     }
