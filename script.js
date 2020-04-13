@@ -10,6 +10,7 @@ const sessionTitle = document.querySelector('#sessionTitle');
 const breakTitle = document.querySelector('.breakTitle');
 let bigTimer = document.querySelector('#bigTimer');
 let myTimer = 25;
+pauseButton.disabled = true;
 
 // session minus button
 minusSessionButton.addEventListener('click', () => {
