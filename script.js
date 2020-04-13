@@ -109,7 +109,6 @@ function startTimer(startTime, bigTimer) {
             startTimeBreak = 60 * parseInt(breakTimer.textContent);
             startBreak(startTimeBreak, bigTimer);
         }
-
     }, 1000);
 }
 
