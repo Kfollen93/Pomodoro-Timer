@@ -16,7 +16,7 @@
   width: 475px;
   height: 500px;
   align-items: flex-end;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .container-1 div {
