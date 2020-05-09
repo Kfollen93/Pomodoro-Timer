@@ -15,7 +15,7 @@
   background-color: rgba(250, 57, 57, 0.932);
   width: 475px;
   height: 500px;
-  align-items: flex-end;
+  align-items: flex;
   flex-wrap: wrap;
 }
 
