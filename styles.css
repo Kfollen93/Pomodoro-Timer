@@ -80,7 +80,7 @@
 .minusBreak {
   flex: 1;
   order: 4;
-  margin-left: 60px;
+  margin-left: 0px;
 }
 
 #minusBreakButton {
