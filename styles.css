@@ -41,8 +41,8 @@
 }
 
 #minusSessionButton {
-  width: 30px;
-  height: 25px;
+  width: 36px;
+  height: 30px;
   font-size: 20px;
   outline: none;
   color: white;
@@ -57,8 +57,8 @@
 }
 
 #plusSessionButton {
-  width: 30px;
-  height: 25px;
+  width: 36px;
+  height: 30px;
   font-size: 20px;
   outline: none;
   color: white;
@@ -84,8 +84,8 @@
 }
 
 #minusBreakButton {
-  width: 30px;
-  height: 25px;
+  width: 36px;
+  height: 30px;
   font-size: 20px;
   outline: none;
   color: white;
@@ -98,14 +98,14 @@
 }
 
 #plusBreakButton {
-  width: 30px;
-  height: 25px;
+  width: 36px;
+  height: 30px;
   font-size: 20px;
   outline: none;
   color: white;
   background-color: rgb(216, 211, 211);
   margin-left: 3px;
-  margin-right: 0px;
+  margin-right: 10px;
 }
 
 .pause {
