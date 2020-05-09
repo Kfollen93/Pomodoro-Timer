@@ -41,8 +41,8 @@
 }
 
 #minusSessionButton {
-  width: 2.5rem;
-  height: 2rem;
+  width: 2.4rem;
+  height: 2.2rem;
   font-size: 1rem;
   outline: none;
   color: white;
@@ -57,8 +57,8 @@
 }
 
 #plusSessionButton {
-  width: 2.5rem;
-  height: 2rem;
+  width: 2.4rem;
+  height: 2.2rem;
   font-size: 1rem;
   outline: none;
   color: white;
@@ -84,8 +84,8 @@
 }
 
 #minusBreakButton {
-  width: 2.5rem;
-  height: 2rem;
+  width: 2.4rem;
+  height: 2.2rem;
   font-size: 1rem;
   outline: none;
   color: white;
@@ -98,8 +98,8 @@
 }
 
 #plusBreakButton {
-  width: 2.5rem;
-  height: 2rem;
+  width: 2.4rem;
+  height: 2.2rem;
   font-size: 1rem;
   outline: none;
   color: white;
