@@ -80,7 +80,7 @@
 .minusBreak {
   flex: 1;
   order: 4;
-  margin-left: 0px;
+  margin-left: 60px;
 }
 
 #minusBreakButton {
@@ -104,8 +104,8 @@
   outline: none;
   color: white;
   background-color: rgb(216, 211, 211);
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 3px;
+  margin-right: 10px;
 }
 
 .pause {
