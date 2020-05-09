@@ -13,8 +13,8 @@
   border-style: solid;
   border-radius: 8%;
   background-color: rgba(250, 57, 57, 0.932);
-  width: 475px;
-  height: 500px;
+  width: 500px;
+  height: 525px;
   align-items: flex-end;
   flex-wrap: wrap;
 }
