@@ -47,13 +47,13 @@
   outline: none;
   color: white;
   background-color: rgb(216, 211, 211);
-  margin-left: 10px;
+  margin-left: 1rem;
 }
 
 .plusSession {
   flex: 1;
   order: 3;
-  margin-left: -15px;
+  margin-left: -1rem;
 }
 
 #plusSessionButton {
@@ -63,7 +63,7 @@
   outline: none;
   color: white;
   background-color: rgb(216, 211, 211);
-  margin-left: 10px;
+  margin-left: 1rem;
 }
 
 .break {
@@ -80,7 +80,7 @@
 .minusBreak {
   flex: 1;
   order: 4;
-  margin-left: 60px;
+  margin-left: 3rem;
 }
 
 #minusBreakButton {
@@ -104,8 +104,8 @@
   outline: none;
   color: white;
   background-color: rgb(216, 211, 211);
-  margin-left: 3px;
-  margin-right: 10px;
+  margin-left: 0.1rem;
+  margin-right: 1rem;
 }
 
 .pause {
