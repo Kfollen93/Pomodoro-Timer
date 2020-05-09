@@ -114,12 +114,12 @@
 }
 
 #pauseButton {
-  width: 80px;
+  width: 90px;
   height: 60px;
   background-color: rgb(134, 231, 89);
   color: white;
   outline: none;
-  font: 400 20px "Oleo Script", Helvetica, sans-serif;
+  font: 18px "Oleo Script", Helvetica, sans-serif;
   margin-left: 22px;
 }
 
@@ -141,9 +141,9 @@ h1 {
 }
 
 #stopButton {
-  width: 80px;
+  width: 90px;
   height: 60px;
-  font: 400 18px "Oleo Script", Helvetica, sans-serif;
+  font: 18px "Oleo Script", Helvetica, sans-serif;
   background-color: rgb(134, 231, 89);
   color: white;
   outline: none;
@@ -159,8 +159,8 @@ h1 {
   text-align: center;
   background-color: rgb(134, 231, 89);
   color: white;
-  width: 250px;
-  height: 55px;
+  width: 260px;
+  height: 65px;
   font: 32px "Oleo Script", Helvetica, sans-serif;
   font-style: italic;
   outline: none;
