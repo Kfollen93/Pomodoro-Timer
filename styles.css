@@ -104,8 +104,8 @@
   outline: none;
   color: white;
   background-color: rgb(216, 211, 211);
-  margin-left: 3px;
-  margin-right: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .pause {
