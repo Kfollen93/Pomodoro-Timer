@@ -9,7 +9,7 @@
 
 .container-1 {
   margin: auto;
-  display: flex;
+  display: -webkit-flex;
   border-style: solid;
   border-radius: 8%;
   background-color: rgba(250, 57, 57, 0.932);
